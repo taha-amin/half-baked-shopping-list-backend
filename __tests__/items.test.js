@@ -55,7 +55,7 @@ describe('items', () => {
     });
   });
 
-  it.only('GET /api/v1/items returns all items associated with the authenticated User', async () => {
+  it('GET /api/v1/items returns all items associated with the authenticated User', async () => {
     // create a user
     const [agent, user] = await registerAndLogin();
     // add a second user with items
@@ -75,7 +75,7 @@ describe('items', () => {
     expect(resp.body).toEqual([user1Item]);
   });
 
-  it('GET /api/v1/items should return a 401 if not authenticated', async () => {
+  it.only('GET /api/v1/items should return a 401 if not authenticated', async () => {
     const resp = await request(app).get('/api/v1/items');
     expect(resp.status).toEqual(401);
   });
