@@ -44,7 +44,7 @@ describe('users', () => {
     });
   });
 
-  it('returns the current user', async () => {
+  it.only('returns the current user', async () => {
     const [agent, user] = await registerAndLogin();
     const me = await agent.get('/api/v1/users/me');
     expect(me.body).toEqual({
